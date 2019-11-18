@@ -9,7 +9,7 @@ state.code <- function(x, drop.state = T) {
   
   key = match(x$state, dictionary$state)
   
-  x$geocode = dictionary$code[key]
+  x$geocode = dictionary$geocode[key]
   
   # pos = which(is.na(key))
   
