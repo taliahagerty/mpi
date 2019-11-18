@@ -1,5 +1,9 @@
 # a funciton to fill in state codes
-# dictionary is cached from ./munge/00-state name dictionary.R
+#' A function to fill in iso3c codes for Mexico's states.
+#' 
+#' @param x dataframe with a column of state names called \code{state}
+#' @param drop.state Drops the state column after inserting the `geocodes` column. \code{TRUE} by default.
+
 
 state.code <- function(x, drop.state = T) {
   
@@ -21,5 +25,6 @@ state.code <- function(x, drop.state = T) {
   }
   
   return(x) }
+
 
 
