@@ -4,7 +4,7 @@
 state.code <- function(x, drop.state = T) {
   
   x$state <- tolower(x$state)
-  dictionary = mpifunctions::dictionary
+  dictionary = mpi::dictionary
   dictionary$state <- tolower(dictionary$state)
   
   key = match(x$state, dictionary$state)
