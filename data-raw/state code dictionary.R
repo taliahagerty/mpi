@@ -49,4 +49,4 @@ dictionary <- rbind(dictionary, tmp)
 
 # 6. use the data in state.code()
 
-usethis::use_data(dictionary, internal = T)
+usethis::use_data(dictionary, internal = T, overwrite = T)
