@@ -5,7 +5,7 @@
 #' @param drop.state Drops the state column after inserting the `geocodes` column. \code{TRUE} by default.
 
 
-state.code <- function(x, drop.state = T) {
+state.code <- function(x, state, drop.state = T) {
   
   x$state <- tolower(x$state)
   dictionary = dictionary
