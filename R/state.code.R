@@ -1,17 +1,17 @@
 # a funciton to fill in state codes
 #' A function to fill in iso3c codes for Mexico's states.
 #' 
-#' @param x a character vector of state names or numeric state codes
+#' @param x a character vector of state names or numeric state
 #' @param drop.state Drops the state column after inserting the `geocodes` column. \code{TRUE} by default.
 
 
-state.code <- function(x) {
+state.code <- function(x, state = "state", drop.state = T) {
   
-  x <- tolower(x)
+  x$state <- tolower(x$state)
   dictionary = dictionary
   dictionary$state <- tolower(dictionary$state)
   
-  key = match(x, dictionary$state)
+  key = match(x$state, dictionary$state)
   
   x$geocode = dictionary$geocode[key]
   
@@ -19,7 +19,11 @@ state.code <- function(x) {
   
   # x$code[pos]
   
-
+  
+  if(drop.state == T) {
+    x <- x %>% select(-state)
+  }
+  
   return(x) }
 
 
