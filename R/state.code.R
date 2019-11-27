@@ -1,7 +1,8 @@
 # a funciton to fill in state codes
 #' A function to fill in iso3c codes for Mexico's states.
 #' 
-#' @param x a character vector of state names or numeric state
+#' @param x a dataframe
+#' @param state a column of state names or INEGI's numeric state codes (1-32)
 #' @param drop.state Drops the state column after inserting the `geocodes` column. \code{TRUE} by default.
 
 
