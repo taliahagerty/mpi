@@ -47,6 +47,28 @@ tmp <- data.frame(state = mpi.state.codes$inegi.code,
 
 dictionary <- rbind(dictionary, tmp)
 
-# 6. use the data in state.code()
+# 6. add the state names copied from the 2019 FF data
+
+state <- c("aguascalientes",      "baja california" ,   "baja california sur",
+           "campeche"           , "coahuila"        ,   "colima"             ,
+           "chiapas"             ,"chihuahua"       ,   "ciudad de mexico"   ,
+            "durango"           ,  "guanajuato"     ,    "guerrero"           ,
+            "hidalgo"           ,  "jalisco"        ,    "mexico"             ,
+            "michoacan"       ,    "morelos"        ,    "nayarit"            ,
+            "nuevo leon"      ,    "oaxaca"         ,    "puebla"             ,
+            "queretaro"       ,    "quintana roo"   ,    "san luis potosi"    ,
+            "sinaloa"           ,  "sonora"         ,    "tabasco"            ,
+            "tamaulipas"      ,    "tlaxcala"       ,    "veracruz"           ,
+            "yucatan"           ,  "zacatecas"  )
+
+
+tmp <- data.frame(state, 
+                  geocode = mpi.state.codes$code[1:32],
+                  state.iep = mpi.state.codes$state.new[1:32])
+
+dictionary <- rbind(dictionary, tmp) 
+dictionary <- dplyr::distinct(dictionary)
+
+# 7. use the data in state.code()
 
 usethis::use_data(dictionary, internal = T, overwrite = T)
