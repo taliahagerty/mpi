@@ -69,6 +69,26 @@ tmp <- data.frame(state,
 dictionary <- rbind(dictionary, tmp) 
 dictionary <- dplyr::distinct(dictionary)
 
-# 7. use the data in state.code()
+# 7. add the state names copied from the GTD
+
+tmp <- tribble(
+  ~state, ~geocode, ~state.iep,
+  "federal", "DIF", "Ciudad de México",
+  "guerrero ", "GRO", "Guerrero",
+  "mexican federal district", "DIF", "Ciudad de México",
+  "mexico city federal district", "DIF", "Ciudad de México",
+  "federal district", "DIF", "Ciudad de México",
+  "veracruz ", "VER", "Veracruz",
+  "oaxaca ", "OAX", "Oaxaca",
+  "quintana", "ROO", "Quintana Roo",
+  "nuevo leon ", "NLE", "Nuevo León",
+  "queretaro ", "QUE", "Querétaro",
+  "m,xico", "MEX",  "Estado de México")
+
+dictionary <- rbind(dictionary, tmp) 
+dictionary <- dplyr::distinct(dictionary)
+
+
+# use the data in state.code()
 
 usethis::use_data(dictionary, internal = T, overwrite = T)
