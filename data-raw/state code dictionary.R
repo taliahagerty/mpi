@@ -47,6 +47,18 @@ tmp <- data.frame(state = mpi.state.codes$inegi.code,
 
 dictionary <- rbind(dictionary, tmp)
 
+# and the ISO codes themselves
+
+tmp <- dictionary %>%
+  select(geocode, state.iep) %>%
+  distinct()
+
+tmp <- data.frame(state = tmp$geocode,
+                  geocode = tmp$geocode,
+                  state.iep = tmp$state.iep)
+
+dictionary <- rbind(dictionary, tmp)
+
 # 6. add the state names copied from the 2019 FF data
 
 state <- c("aguascalientes",      "baja california" ,   "baja california sur",
@@ -84,6 +96,17 @@ tmp <- tribble(
   "nuevo leon ", "NLE", "Nuevo León",
   "queretaro ", "QUE", "Querétaro",
   "m,xico", "MEX",  "Estado de México")
+
+dictionary <- rbind(dictionary, tmp) 
+dictionary <- dplyr::distinct(dictionary)
+
+
+# 8. add the state names copied from the Lantia and 
+
+tmp <- tribble(
+  ~state, ~geocode, ~state.iep,
+  "edomex", "MEX",  "Estado de México",
+  "cdmx",   "DIF",  "Ciudad de México")
 
 dictionary <- rbind(dictionary, tmp) 
 dictionary <- dplyr::distinct(dictionary)
