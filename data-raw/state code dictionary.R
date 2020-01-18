@@ -101,13 +101,26 @@ dictionary <- rbind(dictionary, tmp)
 dictionary <- dplyr::distinct(dictionary)
 
 
-# 8. add the state names copied from the Lantia and 
+# 8. add the state names copied from the Lantia and Etellekt
 
 tmp <- tribble(
   ~state, ~geocode, ~state.iep,
   "edomex", "MEX",  "Estado de México",
-  "cdmx",   "DIF",  "Ciudad de México")
-
+  "cdmx",   "DIF",  "Ciudad de México",
+  "q. roo", "ROO" , "Quintana Roo",
+  "chih"  , "CHH",   "Chihuahua",
+  "dgo" ,      "DUR",       "Durango",
+  "coah",      "COA",      "Coahuila",
+  "tamps",     "TAM",    "Tamaulipas",
+  "mich" ,     "MIC",     "Michoacán",        
+  "chis",      "CHP",       "Chiapas",
+  "camp",      "CAM",      "Campeche",
+  "vera cruz", "VER",      "Veracruz",
+  "nl",        "NLE",    "Nuevo León",
+  "gto",       "GUA",    "Guanajuato",         
+  "qr",        "ROO",  "Quintana Roo",
+  "qro",       "ROO",  "Quintana Roo")  
+  
 dictionary <- rbind(dictionary, tmp) 
 dictionary <- dplyr::distinct(dictionary)
 
